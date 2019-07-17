@@ -1,0 +1,20 @@
+﻿namespace Task2_7
+{
+    public class Point
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+
+        public Point(double x, double y)
+        {
+            this.X = x;
+            this.Y = y;
+            ToString();
+        }
+
+        public string ToString()
+        {
+            return $"(X: {X}, Y: {Y})";
+        }
+    }
+}
