@@ -45,7 +45,17 @@ namespace Task1_6
                             isInput = false;
                             break;
                         }
+                            
+                        default:
+                        {
+                            Console.WriteLine("Неизвестная команда!");
+                            break;
+                        }
                     }
+                }
+                else
+                {
+                    throw new ArgumentException("Неправильный формат входных данных!");
                 }
             }
         }
