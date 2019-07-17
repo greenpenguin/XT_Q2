@@ -53,6 +53,10 @@ namespace Task1_6
                         }
                     }
                 }
+                else
+                {
+                    throw new ArgumentException("Неправильный формат входных данных!");
+                }
             }
         }
 
