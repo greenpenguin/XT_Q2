@@ -18,23 +18,40 @@ namespace Task1_7
         {
             int p = array[(last - first)/2 + first];
             int temp;
-            int i = first, j = last;
+            int i = first;
+            int j = last;
             
             while(i <= j) 
             {
-                while(array[i] < p && i <= last)  ++i;
-                while(array[j] > p && j >= first) --j;
-                if(i <= j) 
+                while (array[i] < p && i <= last)
+                {
+                    ++i;
+                }
+
+                while (array[j] > p && j >= first)
+                {
+                    --j;
+                }
+                
+                if (i <= j) 
                 {
                     temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
-                    ++i; --j;
+                    ++i; 
+                    --j;
                 }
             }
-            
-            if(j > first) SortArray(array, first, j);
-            if(i < last)  SortArray(array, i, last);
+
+            if (j > first)
+            {
+                SortArray(array, first, j);
+            }
+
+            if (i < last)
+            {
+                SortArray(array, i, last);
+            }
         }
 
         public List<int> TakeFirstAndLastArrayElement(int[] array)
