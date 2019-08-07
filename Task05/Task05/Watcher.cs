@@ -5,6 +5,7 @@ namespace Task05
 {
     public class Watcher
     {
+        
         public static void Run()
         {
             using (FileSystemWatcher watcher = new FileSystemWatcher())
@@ -25,7 +26,7 @@ namespace Task05
 
                 watcher.EnableRaisingEvents = true;
 
-                WorkWithConsoleClass.ExitWatcherMode();
+               WorkWithConsoleClass.ExitWatcherMode();
             }
         }
 
@@ -33,14 +34,16 @@ namespace Task05
         {
             //FileEditingClass.CopyTheFileToBackups(e.Name);
             FileEditingClass.CopyAllFilesToBackups();
-            Console.WriteLine($"File: {e.FullPath} {e.ChangeType}");
+            Console.WriteLine($"File {e.FullPath} {e.ChangeType}");
         }
 
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
-            //FileEditingClass.CopyTheFileToBackups(e.OldName);
+            FileEditingClass fileEditingClass = new FileEditingClass();
+            //FileEditingClass.CopyTheFileToBackups(e.Name);
             FileEditingClass.CopyAllFilesToBackups();
-            Console.WriteLine($"File: {e.OldFullPath} renamed to {e.FullPath}");
+            fileEditingClass.SaveNewPathForRenamedFiles(e.OldFullPath, e.FullPath);
+            Console.WriteLine($"File {e.OldFullPath} renamed to {e.FullPath}");
         }
     }
 }
