@@ -73,10 +73,6 @@ namespace Task05
                             break;
                         }
                     }
-                    /*else
-                    {
-                        throw new ArgumentException("Wrong input format!");
-                    }*/
                 }
             }
         }
