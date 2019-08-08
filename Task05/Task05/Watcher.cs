@@ -32,7 +32,6 @@ namespace Task05
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            //FileEditingClass.CopyTheFileToBackups(e.Name);
             FileEditingClass.CopyAllFilesToBackups();
             Console.WriteLine($"File {e.FullPath} {e.ChangeType}");
         }
@@ -40,7 +39,6 @@ namespace Task05
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             FileEditingClass fileEditingClass = new FileEditingClass();
-            //FileEditingClass.CopyTheFileToBackups(e.Name);
             FileEditingClass.CopyAllFilesToBackups();
             fileEditingClass.SaveNewPathForRenamedFiles(e.OldFullPath, e.FullPath);
             Console.WriteLine($"File {e.OldFullPath} renamed to {e.FullPath}");
